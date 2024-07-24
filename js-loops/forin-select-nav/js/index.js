@@ -20,7 +20,13 @@ const select = document.createElement("select");
 select.name = "languages";
 main.append(select);
 
-// --v-- write/change code here --v--
+for (const key in languages) {
+  console.log(key, languages[key]);
+  const option = document.createElement("option");
+  option.setAttribute("value", languages[key]);
+  option.textContent = languages[key];
+  select.append(option);
+}
 
 // --^-- write/change code here --^--
 
