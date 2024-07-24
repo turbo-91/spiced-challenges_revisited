@@ -28,8 +28,6 @@ for (const key in languages) {
   select.append(option);
 }
 
-// --^-- write/change code here --^--
-
 // Part 2: Creating a Navigation Bar
 
 const nav = {
@@ -42,6 +40,16 @@ const navElement = document.createElement("nav");
 const ul = document.createElement("ul");
 main.append(navElement);
 navElement.append(ul);
+
+for (const key in nav) {
+  console.log(key, nav[key]);
+  const listItem = document.createElement("li");
+  const anchorTag = document.createElement("a");
+  anchorTag.setAttribute("href", nav[key].href);
+  anchorTag.textContent = nav[key].text;
+  ul.append(listItem);
+  listItem.append(anchorTag);
+}
 
 // --v-- write/change code here --v--
 
