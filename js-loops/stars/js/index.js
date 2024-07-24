@@ -7,13 +7,17 @@ function renderStars(filledStars) {
   starContainer.innerHTML = "";
   for (let counter = 1; counter <= 5; counter++) {
     const image = document.createElement("img");
+    image.addEventListener("click", () => {
+      renderStars(counter);
+    });
     if (counter <= filledStars) {
       image.setAttribute("src", "assets/star-filled.svg"); // use filled star image
     } else {
       image.setAttribute("src", "assets/star-empty.svg"); // use empty star image
     }
+
     starContainer.append(image);
   }
 }
 
-renderStars();
+renderStars(0);
