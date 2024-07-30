@@ -7,12 +7,23 @@ const queryInput = document.querySelector('[data-js="query-input"]');
 queryInput.addEventListener("input", (event) => {
   container.innerHTML = "";
 
-  const searchString = event.target.value;
+  const searchString = event.target.value.toLowerCase();
+  console.log(searchString);
 
-  const foundCountry = null;
+  const foundCountry = countries.find((country) =>
+    country.name.toLowerCase().startsWith(searchString)
+  );
+  console.log(foundCountry);
 
-  if (foundCountry) {
-    const countryElement = Country(foundCountry);
-    container.append(countryElement);
+  const foundCountries = countries.filter((country) =>
+    country.name.toLowerCase().startsWith(searchString)
+  );
+  console.log(foundCountries);
+
+  if (foundCountries) {
+    foundCountries.forEach((country) => {
+      const countryElement = Country(country);
+      container.append(countryElement);
+    });
   }
 });
